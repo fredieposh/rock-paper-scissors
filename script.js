@@ -9,8 +9,16 @@ function getComputerChoice() {
     };
 }
 
+function getButtonClicked() {
+    const choiceButtonsDiv = document.querySelector("div");
+
+    choiceButtonsDiv.addEventListener("click", (e) => {
+        console.log(e.target.textContent);
+    });  
+}
+
 function getUserChoice() {
-    return prompt("Enter Your Move");
+    getButtonClicked();
 }
 
 function playRound(humanChoice, computerchoice) {
@@ -69,8 +77,5 @@ function playGame() {
 
 let humanScore = 0,
     computerScore = 0;
+  
 
-for (let i = 0; i < 5; i++) {
-    console.log(`Round ${i + 1}:`)
-    playGame();
-}
