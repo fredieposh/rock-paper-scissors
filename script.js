@@ -9,18 +9,6 @@ function getComputerChoice() {
     };
 }
 
-function getButtonClicked() {
-    const choiceButtonsDiv = document.querySelector("div");
-
-    choiceButtonsDiv.addEventListener("click", (e) => {
-        console.log(e.target.textContent);
-    });  
-}
-
-function getUserChoice() {
-    getButtonClicked();
-}
-
 function playRound(humanChoice, computerchoice) {
     humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
     computerchoice = computerchoice.charAt(0).toUpperCase() + computerchoice.slice(1).toLowerCase();
@@ -67,8 +55,8 @@ function playRound(humanChoice, computerchoice) {
     }
 }
 
-function playGame() {
-    const humanSelection = getUserChoice();
+function playGame(userChoice) {
+    const humanSelection = userChoice;
     const computerSelection = getComputerChoice();
 
     playRound(humanSelection, computerSelection);
@@ -77,5 +65,13 @@ function playGame() {
 
 let humanScore = 0,
     computerScore = 0;
+
+const choiceButtonsDiv = document.querySelector("div");
+
+choiceButtonsDiv.addEventListener("click", (e) => {
+    if (humanScore < 5 && computerScore < 5)
+    playGame(e.target.textContent);
+});  
+
   
 
