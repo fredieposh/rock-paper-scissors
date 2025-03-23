@@ -10,3 +10,8 @@ body {
 div {
     margin-top: 30px;
 }
+
+#winner {
+    color: red;
+    font-weight: 800;
+}
